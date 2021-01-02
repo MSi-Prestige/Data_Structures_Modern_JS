@@ -175,9 +175,23 @@ const menu2 = [...mainMenuCopy, ...newMenu];
 // console.log(menu2);
 //--------------------------------------------------------------------------------------------------------------
 
+//! -------------- LESSOn  104 - 105 - 106 ----------------
 
+// Objects 
+const { sat, ...weekdays } = restaurant.openingHours;
+// console.log(weekdays);
+//?--------------------------------------------...numbers for(let i = 0 ; i< num.l ; i++) sum += num[i];
 
-
+const add = function (...numbers) {
+    let sum = 0;
+    for (let i = 0; i < numbers.length; i++) {
+        sum += numbers[i];
+    } console.log(sum);
+};
+add(2, 4);                   //функция принимает любое количество аргументов
+add(5, 6, 7, 9);
+add(10, 10, 20);
+//?------------------------------------------------------------------------------------------------------------
 
 // //TODO: ----------------String--------  cons.log - 3 items
 // for (const day of Object.keys(restaurant.openingHours)) {
