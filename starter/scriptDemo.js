@@ -164,7 +164,7 @@ const newMenu = [...restaurant.mainMenu, "Popatos"];  // NEW ARRAY + 1 ELEMENT
 // console.log(newMenu);
 
 //! spread don't create a new variable and gives all elements from array . 
-//but destruction create variable [a,b] = .....
+//but destruction create variable [a,b] = .......
 
 // copy Array
 
