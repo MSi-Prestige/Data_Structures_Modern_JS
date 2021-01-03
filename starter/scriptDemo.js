@@ -180,42 +180,58 @@ const menu2 = [...mainMenuCopy, ...newMenu];
 // Objects 
 const { sat, ...weekdays } = restaurant.openingHours;
 // console.log(weekdays);
-//?--------------------------------------------...numbers for(let i = 0 ; i< num.l ; i++) sum += num[i];
+//?--------------------------------------------...numbers for(let i = 0 ; i< num.length ; i++) sum += num[i];
 
 const add = function (...numbers) {
     let sum = 0;
     for (let i = 0; i < numbers.length; i++) {
         sum += numbers[i];
-    } console.log(sum);
+        // } console.log(sum);
+    }
 };
 add(2, 4);                   //функция принимает любое количество аргументов
 add(5, 6, 7, 9);
 add(10, 10, 20);
 //?------------------------------------------------------------------------------------------------------------
 
-// //TODO: ----------------String--------  cons.log - 3 items
-// for (const day of Object.keys(restaurant.openingHours)) {
-//     console.log(day);
-// }
-// //TODO: -----------------Array--------- keys in varibale properties (array 3 items)
-// const properties = Object.keys(restaurant.openingHours);
-// console.log(properties);
 
-// console.log(`we are ${properties.length}`);  // 3 items
+
+
+
+// //TODO: ----------------String--------  cons.log - 3 items  LESSON  -------- 113 .
+for (const day of Object.keys(openingHours)) {
+    console.log(day);
+}
+// //TODO: -----------------Array--------- keys in varibale properties (array 3 items)
+const properties = Object.keys(restaurant.openingHours);
+console.log(properties);
+
+console.log(`we are open on ${properties.length} days`);  // 3 items
 
 // //TODO: так как properties теперь содержит массив с 3 днями то его можно 
 // //TODO: перебрать с FOR OF. 
 
-// for (const day of properties) {
-//     console.log(day);
-// }
+for (const day of properties) {
+    console.log(day);
+}
 // //TODO: FULL String output console log.
 
-// let openStr = `We are open on ${properties.length} days:`;
-// for (const day of properties) {
-//     openStr += `${day},`;
-// }
-// console.log(openStr);
+let openStr = `We are open on ${properties.length} days:`;
+for (const day of properties) {
+    openStr += `${day},`;
+}
+console.log(openStr);
+//-----------------------------------------------------------------------------------
+const values = Object.values(openingHours);
+console.log(values);
+
+const entries = Object.entries(openingHours);
+for (const [key, { open, close }] of entries) {
+    console.log(key, open, close);
+}
+
+
+
 
 // restaurant.numGuest = 0;
 // const numGess = restaurant.numGuest || 10;
@@ -231,7 +247,7 @@ add(10, 10, 20);
 // if (restaurant.openingHours.fri) {
 //     console.log(restaurant.openingHours.fri.open);
 // }
-
+//TODO: PROMPT order
 // const ingridients = [prompt("Let's make pasta! Ingredient 1?"),
 // prompt("Ingredient 2?"), prompt("Ingredient 3?")];
 
@@ -284,8 +300,32 @@ add(10, 10, 20);
 // console.log(newArr);
 
 
-// const mainMenuCopy = [...restaurant.mainMenu];
-// const menu = [...mainMenuCopy, ...restaurant.mainMenu];
-// console.log(menu);
+//TODO ---------------------------------- 1 METHOD -- ENTRIES --------------LESS 111-----------------------
+const menu12 = [...restaurant.starterMenu, ...restaurant.mainMenu];
+// console.log(menu12);
 
+// for (const items of menu12) {
+//     console.log(items);
+// }
+//! ENTRIES ------->>> он создает массив с индексом и названием(значением)  items 0 = index.  items 1 = value.
+for (const items of menu12.entries()) {
+    //0: "Focaccia"
+    //1: "Bruschetta"
+    //2: "Garlic Bread"
+    //3: "Caprese Salad"
+    //4: "Pizza"
+    //5: "Pasta"
+    //6: "Risotto"
+    // console.log(`${items[0] + 1} : ${items[1]}`);
+}
+//TODO ---------------------------------- 2 METHOD -- ENTRIES   GOOD -------------------------------------
+for (const [i, el] of menu12.entries()) {
+    // console.log(`${i + 1} : ${el}`);
+}
+//--------------------------------------------------------------------------------------------------------
+
+//TODO: ---------------------------------LESSON 112---------------------------------------------------
+
+//console.log(restaurant.openingHours?.mon?.open);    // undifined
+//console.log(restaurant.openingHours.mon.open);      //ERROR cannot read prop.
 

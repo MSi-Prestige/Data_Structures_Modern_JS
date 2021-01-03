@@ -43,30 +43,109 @@ const game = {
   },
 };
 
+//!----------------------------------------------------START-----------------------------------------------
+//1
+const [players1, players2] = game.players;
+console.log(players1, players2);
 
-for (const [i, valueScore] of game.scored.entries()) {
-  console.log(`Goal ${i + 1}: ${valueScore}.`);
+
+//2
+const [gk, ...fieldPlayers] = players1;
+console.log(gk, fieldPlayers);
+
+//3
+
+const [...allPlayers] = game.players;
+console.log(allPlayers);
+
+//3 
+const allPl = [...players1, ...players2];
+console.log(allPl);
+
+//4
+
+const players1Final = [...players1, 'Thiago', 'Coutinho', 'Perisic'];
+console.log(players1Final);
+
+//5 
+//На основе объекта game.odds создайте по одной переменной для каждого нечетного (называемых team1, draw и team2).
+const {
+  odds: { team1, x: draw, team2 },
+} = game;
+console.log(team1, draw, team2);
+
+//6
+//Напишите функцию ('printGoals'), которая получает произвольное количество
+//имен игроков(НЕ массив) и выводит каждое из них на консоль.
+function printGoals(...name) {
+  console.log(`${name.length} was were scored`);
 }
+printGoals(...game.scored);
+// --------------------------------------JONAS-------------------------------
+// 6.
+// const printGoals = function (...players) {
+// console.log(players);
+//   console.log(`${players.length} goals were scored`);
+// };
+// printGoals('Davies', 'Muller', 'Lewandowski', 'Kimmich');  // 4 goals were scored
+// printGoals('Davies', 'Muller');  // 2 goals were scored
+// printGoals(...game.scored); // 4 goals were scored
+
+//7.
+team1 < team2 && console.log('Team 1 is more likely to win'); //если первое правда то делаем сразу второе.
+team1 > team2 && console.log('Team 2 is more likely to win');
 
 
-//TODO:           ENTRIES = vivodit ili vesj array esli Object.entries   ili key , value
-const odds = Object.values(game.odds);
-//TODO:  Object.keys = vivodit toljko klju4i (naznavnija)
-//! Object.values = vivodit toljko zna4enija - 1.3, 3.4, .....
-// console.log(odds);
+//! ----------------------------------------------------------AND-------------------------------------------------
 
 
-const myOdds = odds.reduce((a, b) => a + b, 0) / odds.length;
-console.log(myOdds);
 
 
-const gameOdds = Object.values(game.odds);
-let averageOdd = 0;
 
-for (const odd of gameOdds) {
-  averageOdd += (odd) / (gameOdds.length);
-}
-console.log(averageOdd);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// for (const [i, valueScore] of game.scored.entries()) {
+//   console.log(`Goal ${i + 1}: ${valueScore}.`);
+// }
+
+
+// //TODO:           ENTRIES = vivodit ili vesj array esli Object.entries   ili key , value
+// const odds = Object.values(game.odds);
+// //TODO:  Object.keys = vivodit toljko klju4i (naznavnija)
+// //! Object.values = vivodit toljko zna4enija - 1.3, 3.4, .....
+// // console.log(odds);
+
+
+// const myOdds = odds.reduce((a, b) => a + b, 0) / odds.length;
+// console.log(myOdds);
+
+
+// const gameOdds = Object.values(game.odds);
+// let averageOdd = 0;
+
+// for (const odd of gameOdds) {
+//   averageOdd += (odd) / (gameOdds.length);
+// }
+// console.log(averageOdd);
 
 
 
@@ -161,21 +240,21 @@ console.log(averageOdd);
 
 // }
 
-// //TODO: -------------- 1
-// const goals = [...game.scored];
-// console.log(goals);
-// //TODO: -------------- 1                   [] + key value.
-// const values = Object.values(game.scored);
-// console.log(values);
-// //TODO:-----------------
-// // Entire object
-// const entries = Object.entries(game.scored);
-// console.log(game.scored);
-// //TODO:-----------------
+//TODO: -------------- 1
+const goals = [...game.scored];
+console.log(goals);
+//TODO: -------------- 1                   [] + key value.
+const values = Object.values(game.scored);
+console.log(values);
+//TODO:-----------------
+// Entire object
+const entries = Object.entries(game.scored);
+console.log(entries);
+//TODO:-----------------
 
-// for (const [day] of entries) {
-//   console.log(`On ${day} we`);
-// }
+for (const [day] of entries) {
+  console.log(`On ${day} we`);
+}
 
 
 
